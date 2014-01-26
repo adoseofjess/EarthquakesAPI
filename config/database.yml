@@ -5,3 +5,9 @@ development:
   database: myapp_development
   pool: 5
   timeout: 5000
+  
+test:
+  adapter: postgresql
+  host: localhost
+  database: myapp_development        # or whatever the name is
+  encoding: UTF8

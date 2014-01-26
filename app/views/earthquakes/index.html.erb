@@ -1,2 +1,11 @@
-<h1>Earthquakes#index</h1>
-<p>Find me in app/views/earthquakes/index.html.erb</p>
+<h1>Listing Earthquakes</h1>
+
+<% @earthquakes.each do |earthquake| %>
+  <tr>
+    <td><%= earthquake.date %></td>
+    <td><%= earthquake.magnitude %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br />

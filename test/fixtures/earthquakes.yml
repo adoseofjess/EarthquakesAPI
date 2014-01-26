@@ -2,12 +2,12 @@
 
 one:
   magnitude: 1.5
-  lat: 1.5
-  lng: 1.5
+  latitude: 1.5
+  longitude: 1.5
   date: 2014-01-24 13:02:05
 
 two:
   magnitude: 1.5
-  lat: 1.5
-  lng: 1.5
+  latitude: 1.5
+  longitude: 1.5
   date: 2014-01-24 13:02:05

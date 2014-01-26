@@ -2,8 +2,6 @@ desc "Fetch earthquakes and create in database"
 task :fetch_earthquakes => :environment do 
   require 'nokogiri'
   require 'open-uri'
-
-
   page1 = Nokogiri::HTML(open("http://earthquake.usgs.gov/earthquakes/catalogs/eqs7day-M1.txt"))
   
   numEntries = page1.css("p").text.split("\n").length - 1 

@@ -1,11 +1,14 @@
 class EarthquakesController < ApplicationController
-
-  
   def index
     if params[:on].nil? && params[:since].nil? && params[:over].nil? && params[:near].nil?
       @earthquakes = Earthquake.all
-      p @earthquakes.length
-      render :json => @earthquakes
+      
+      # render :json => @earthquakes
+      respond_to do |format|
+        format.html
+        format.json { render json: @earthquakes }
+      end
+      
     else 
       @earthquakes = Earthquake.all
       if !params[:on].nil?
@@ -18,7 +21,7 @@ class EarthquakesController < ApplicationController
       end
       if !params[:over].nil?
         magnitude_given = params[:over] 
-        @earthquakes = Earthquake.where("magnitude > :magnitude_given", magnitude_given: magnitude_given)
+        @earthquakes = Earthquake.where("magnitude >= :magnitude_given", magnitude_given: magnitude_given)
       end
       if !params[:near].nil?
         lat_lng1 = []
@@ -28,11 +31,14 @@ class EarthquakesController < ApplicationController
         @earthquakes.select! {|earthquake| 
         lat_lng2 = []       
 lat_lng2.push(earthquake.latitude.to_f).push(earthquake.longitude.to_f)
-        
-        Geocoder::Calculations.distance_between(lat_lng1, lat_lng2) < 5.0
+Geocoder::Calculations.distance_between(lat_lng1, lat_lng2) < 5.0
         }
       end
-      render :json => @earthquakes
+      # render :json => @earthquakes
+      respond_to do |format|
+        format.html
+        format.json { render json: @earthquakes }
+      end
     end
   end
 end

@@ -5,6 +5,18 @@ gem 'rails', '3.2.15'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+end
+
 gem 'pg'
 gem 'nokogiri'
 gem "unirest", "~> 1.1.1"
