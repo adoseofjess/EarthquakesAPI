@@ -1,5 +1,9 @@
 class EarthquakesController < ApplicationController
   def index
+
+    
+    
+    
     if params[:on].nil? && params[:since].nil? && params[:over].nil? && params[:near].nil?
       @earthquakes = Earthquake.all
       
@@ -13,7 +17,7 @@ class EarthquakesController < ApplicationController
       @earthquakes = Earthquake.all
       if !params[:on].nil?
         date = Time.at(params[:on].to_i)
-        @earthquakes = Earthquake.find_by_date(date)
+        @earthquakes = Earthquake.find_all_by_date(date)
       end
       if !params[:since].nil?
         date_since = Time.at(params[:since].to_i)

@@ -1,11 +1,31 @@
 <h1>Listing Earthquakes</h1>
 
-<% @earthquakes.each do |earthquake| %>
+<!-- <% @earthquakes.each do |earthquake| %>
   <tr>
-    <td><%= earthquake.date %></td>
-    <td><%= earthquake.magnitude %></td>
+    <td>Date: <%= earthquake.date %></td>
+    <td>Magnitude: <%= earthquake.magnitude %></td>
+    <td>Latitude: <%= earthquake.magnitude %></td>
+    <td>Longitude: <%= earthquake.magnitude %></td>
   </tr>
 <% end %>
 </table>
  
-<br />
+<br /> -->
+
+
+<table class="table table-striped">
+  <tr>
+    <td>Date
+    <td>Magnitude
+    <td>Latitude
+    <td>Longitude
+  </tr>
+<% @earthquakes.each do |earthquake| %>
+  <tr>
+    <td><%= earthquake.date %></td>
+    <td><%= earthquake.magnitude %></td>
+    <td><%= earthquake.magnitude %></td>
+    <td><%= earthquake.magnitude %></td>
+  </tr>
+<% end %>
+</table>
