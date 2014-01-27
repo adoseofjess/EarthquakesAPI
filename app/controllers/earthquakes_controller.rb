@@ -51,7 +51,7 @@ class EarthquakesController < ApplicationController
       if !params[:over].nil? && params[:over].to_s.length != 0
         magnitude_given = params[:over] 
         if @earthquakes.length > 0
-          @earthquakes = @earthquakes.select {|earthquake| earthquake.magnitude >= params[:over].to_i }
+          @earthquakes = @earthquakes.select {|earthquake| earthquake.magnitude >= params[:over].to_f }
         end
       end
       
