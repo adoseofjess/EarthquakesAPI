@@ -27,7 +27,7 @@ describe EarthquakesController do
  
         get :index, :on => @recent_earthquake.date.to_i, :format => :json
         parsed_body = JSON.parse(response.body)
-        parsed_body["date"].to_datetime.to_i.should eq(@recent_earthquake.date.to_i)
+        parsed_body[0]["date"].to_datetime.to_i.should eq(@recent_earthquake.date.to_i)
       end
     end
     
@@ -53,18 +53,17 @@ describe EarthquakesController do
       parsed_body = JSON.parse(response.body)
       parsed_body[0]["latitude"].should eq(34.0352)
       parsed_body[0]["longitude"].should eq(-116.4138)
+      end
     end
-  end
-    
-    # context "with more than one params" do 
-    #   it "returns all earthquakes that pass all params" do 
-    #     get :index, :since => @all_params_earthquake.date.to_i, :over => 5.0, :format => :json
-    #     parsed_body = JSON.parse(response.body)
-    #     p parsed_body[0]
-    #     p @all_params_earthquake.date.to_i
-    #     # parsed_body["date"].to_datetime.to_i.should eq(@all_params_earthquake.date.to_i)
-    #     # parsed_body[0]["magnitude"].should be >= 5.0
-    #   end
-    # end
+   
+    after(:all) do 
+     @recent_earthquake.delete
+     @not_as_recent_earthquake.delete
+     @large_magnitude_earthquake.delete
+     @small_magnitude_earthquake.delete
+     @lat_lng1_earthquake.delete
+     @lat_lng2_earthquake.delete
+     @all_params_earthquake.delete
+   end 
   end
 end

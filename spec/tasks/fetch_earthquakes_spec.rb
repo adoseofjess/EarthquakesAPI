@@ -16,7 +16,7 @@ describe 'fetch_earthquakes' do
     
     it "should fetch earthquakes" do 
       @rake["fetch_earthquakes"].invoke
-      expect(Earthquake.all.length).to be > 100
+      expect(Earthquake.all.length).to be > 0
     end
   end
 end

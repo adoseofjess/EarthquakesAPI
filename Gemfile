@@ -17,6 +17,7 @@ group :test do
   gem 'launchy'
 end
 
+gem 'whenever', :require => false
 gem 'pg'
 gem 'nokogiri'
 gem "unirest", "~> 1.1.1"
