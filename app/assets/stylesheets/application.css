@@ -108,3 +108,12 @@ input {
 
 .btn {
 }
+
+.index-container {
+  margin: 40px;
+  margin-left: 80px;
+}
+
+table {
+  width: 1000px;
+}

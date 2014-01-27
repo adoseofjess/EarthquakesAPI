@@ -10,7 +10,6 @@ class EarthquakesController < ApplicationController
       end
     
     else 
-      
       @earthquakes = Earthquake.all
       
       if !params[:on].nil? && params[:on].length != 0 
