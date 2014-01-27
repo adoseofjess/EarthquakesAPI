@@ -12,3 +12,99 @@
  *= require_tree .
  *= require bootstrap 
  */
+ 
+
+header {
+  height: 10%;
+  width: 100%;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  display: block;
+  background: rgb(235, 235, 235);
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  
+}
+
+.logo {
+  height: 25px;
+  width: 124px;
+  background: url("https://d138ozz5asdy96.cloudfront.net/images/icons/sprite-sf1fcaf6787-a7a84b17.png") no-repeat;
+  background-position: 0 -278px;
+  margin: 16px 0 0 16px;
+  overflow: hidden;
+  text-indent: 100%;
+  float: left;
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 1.9em;
+  color: #524e47;
+}
+
+.page-title {
+  height: 40%;
+  width: 70%;
+  margin-top: 10px;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+  font-size: 2em;
+}
+
+.slogan {
+  font-size: 1em;
+  margin-left: 30%;
+  float: right; 
+  font-style: italic;
+  margin-right: 10px;
+}
+ 
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333;
+}
+.container {
+  margin-top: 10%;
+}
+
+.title {
+  font-size: 2em;
+}
+
+label {
+  display: inline-block;
+}
+
+footer {
+  height: 10%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  background: rgb(235, 235, 235);
+  display: block;
+  text-align: center;
+  line-height: 60px;
+}
+
+form {
+  border: solid 1px black;
+  padding: 10px;
+  line-height: 30px;
+  height: 210px;
+  width: 470px;
+  margin-left: 28%;
+}
+
+.form-group {
+  
+}
+
+input {
+/*  align-items: stretch;*/
+}
+
+.btn {
+}

@@ -151,9 +151,14 @@ legend {
 }
 
 button,
-input,
 select,
 textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+input {
   margin: 0;
   font-family: inherit;
   font-size: 100%;
