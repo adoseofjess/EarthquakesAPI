@@ -1,4 +1,4 @@
-class EarthquakesController < ApplicationController
+class FormController < ApplicationController
   def index
     if params[:on].nil? && params[:since].nil? && params[:over].nil? && params[:near].nil?
       @earthquakes = Earthquake.all
@@ -9,33 +9,36 @@ class EarthquakesController < ApplicationController
     else 
       @earthquakes = Earthquake.all
       
-      if !params[:on].nil? 
-        if params[:since].nil? 
-          date = params[:on].to_i
-          @earthquakes = @earthquakes.select! {|earthquake| Time.at(earthquake.date.to_i).to_s[0..9] == Time.at(date).to_s[0..9] }
+      if params[:on].length != 0 
+        if params[:since].length != 0
+          @earthquakes = @earthquakes.select! {|earthquake| Time.at(earthquake.date.to_i).to_s[0..9] == params[:on] }
+          
         else
-          date = params[:on].to_i
+          year_month_day = params[:on].split("-").map(&:to_i)
+          date = DateTime.new(year_month_day[0], year_month_day[1], year_month_day[2]).to_i
           if @earthquakes.length > 0
           @earthquakes = @earthquakes.select {|earthquake| earthquake.date.to_i < date }
           end
         end
       end
       
-      if !params[:since].nil? 
-        date_since = params[:since].to_i
+      if params[:since].length != 0
+        year_month_day = params[:since].split("-").map(&:to_i)
+        date_since = DateTime.new(year_month_day[0], year_month_day[1], year_month_day[2]).to_i
+        
         if @earthquakes.length > 0
           @earthquakes = @earthquakes.select {|earthquake| earthquake.date.to_i > date_since }
         end
       end
       
-      if !params[:over].nil? 
+      if params[:over].length != 0
         magnitude_given = params[:over] 
         if @earthquakes.length > 0
           @earthquakes = @earthquakes.select {|earthquake| earthquake.magnitude >= params[:over].to_f }
         end
       end
       
-      if !params[:near].nil? 
+      if params[:near].length != 0
         lat_lng1 = []
         params[:near].gsub(/\s+/, "").split(",").each do |coord|
           lat_lng1.push(coord.to_f)
