@@ -12,7 +12,7 @@ describe EarthquakesController do
       @small_magnitude_earthquake = FactoryGirl.create(:small_magnitude)
       @lat_lng1_earthquake = FactoryGirl.create(:lat_lng1)
       @lat_lng2_earthquake = FactoryGirl.create(:lat_lng2)
-      @all_params_earthquake = FactoryGirl.create(:all_params)
+      @all_params_earthquake = FactoryGirl.create(:all_params)      
     end
     
     context "without any params" do 
@@ -51,8 +51,9 @@ describe EarthquakesController do
       it "returns earthquakes within 5 miles of given latitude and longitude coordinates" do 
       get :index, :near => "34.0352,-116.4138", :format => :json
       parsed_body = JSON.parse(response.body)
-      parsed_body[0]["latitude"].should eq(34.0352)
-      parsed_body[0]["longitude"].should eq(-116.4138)
+      
+      (parsed_body[0]["latitude"]-34).should be < 1
+      (parsed_body[0]["longitude"]-(-116)).should be < 1
       end
     end
    
